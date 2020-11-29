@@ -4,8 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Scissors Paper</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" type="text/css" />\
 </head>
 <body>
-    
+    <div class="main-wrapper">
+        <div class="content-wrapper">
+            <header>
+                <h1>ROCK SCISSORS PAPER</h1>
+            </header>
+
+            <div class="round">
+                <p id="round-number">Round: 1</p>
+            </div>
+
+            <div class="game">
+                <div class="player">
+                    <p id="user-name">User's name</p>
+                    <p class="points">Points: <b id="user-points">0</b></p>
+
+                    <div class="images">
+                        <img src="img/paper.png" alt="paper" height="170px" width="170px">
+                        <br>
+                        <img src="img/rock.jpg" alt="rock" height="170px" width="170px">
+                        <br> <br>
+                        <img src="img/scissors.png" alt="scissors" height="170px" width="170px">
+                    </div>
+                    <div id="choosen" class="choosen"></div>
+                </div>
+
+                <div class="player">
+                    <p id="computer">Computer</p>
+                    <p class="points">Points: <b id="computer-points">0</b></p>
+                </div>
+
+                <div style="clear: both"></div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
