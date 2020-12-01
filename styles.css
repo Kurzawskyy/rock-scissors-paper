@@ -20,7 +20,7 @@ html {
 }
 
 .content-wrapper {
-    background-color: #ffffff;
+    background-color: #FFF;
     height: 90%;
     width: 70%;
     border-radius: 4%;
@@ -33,7 +33,7 @@ header {
     text-align: center;
     font-size: 35px;
     padding: 25px;
-    background-image: linear-gradient(to top, #fc00ff, #00dbde); 
+    background-image: linear-gradient(to top, #FC00FF, #00DBDE); 
     -webkit-background-clip: text;
     color: transparent;
     border-bottom: solid 3px #5433FF;
@@ -44,7 +44,7 @@ header {
     text-align: center;
     font-size: 35px;
     padding: 15px;
-    color: #0066ff;
+    color: #0066FF;
 }
 
 .game {
@@ -65,8 +65,8 @@ header {
     height: 91%;
 }
 
-#user-name {
-    color: #00cc00;
+.user-name {
+    color: #0c0;
     font-size: 30px;
     text-align: center;
 }
