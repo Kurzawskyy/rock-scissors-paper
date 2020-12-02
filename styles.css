@@ -59,12 +59,6 @@ header {
     padding: 15px;
 }
 
-.line {
-    float: left;
-    margin-top: 2%;
-    height: 91%;
-}
-
 .user-name {
     color: #0c0;
     font-size: 30px;
