@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Audiowide', cursive;
+}
+
+.main-wrapper {
+    height: 100vh;
+    width: 100vw;
+    background: #5433FF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #A5FECB, #20BDFF, #5433FF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #A5FECB, #20BDFF, #5433FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.content-wrapper {
+    background-color: #FFF;
+    height: 90%;
+    width: 70%;
+    border-radius: 4%;
+}
+
+header {
+    height: 15%;
+    width: 96%;
+    margin: auto;
+    text-align: center;
+    font-size: 35px;
+    padding: 25px;
+    background-image: linear-gradient(to top, #FC00FF, #00DBDE); 
+    -webkit-background-clip: text;
+    color: transparent;
+    border-bottom: solid 3px #5433FF;
+}
+
+.round {
+    height: 7%;
+    text-align: center;
+    font-size: 35px;
+    padding: 15px;
+    color: #0066FF;
+}
+
+.game {
+    width: 96%;
+    height: 74%;
+    margin: auto;
+}
+
+.player {
+    float: left;
+    width: 49%;
+    padding: 15px;
+}
+
+.user-name {
+    color: #0c0;
+    font-size: 30px;
+    text-align: center;
+}
+
+#computer {
+    color: red;
+    font-size: 30px;
+    text-align: center;
+}
+
+.points {
+    text-align: right;
+    margin-right: 25px;
+    font-size: 20px;
+}
+
+.images {
+    margin-left: 40px;
+    float: left;
+}
+
+.choosen {
+    float: left;
+    width: 170px;
+    height: 170px;
+    margin-top: 170px;
+    margin-left: 110px;
+    border: 1px solid black;
+}
+
