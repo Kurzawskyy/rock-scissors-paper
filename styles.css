@@ -103,6 +103,11 @@ header {
     border-radius: 20%;
 }
 
+.img-size {
+    height: 170px;
+    width: 170px;
+}
+
 .item-visible {
     display: block;
 }

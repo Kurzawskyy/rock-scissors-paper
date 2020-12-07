@@ -1,8 +1,8 @@
 // const appState = {
-//     userName: '',
-//     selectedItem: '',
-//     computerSelection: '',
-//     round ,
+//     userName,
+//     userSelectedItem,
+//     computerSelectedItem,
+//     round,
 //     points: [user, computer]
 // };
 
