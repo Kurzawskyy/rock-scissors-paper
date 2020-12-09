@@ -6,6 +6,8 @@
 //     points: [user, computer]
 // };
 
+console.log('hello world');
+
 const paper = document.getElementById('paper');
 const rock = document.getElementById('rock');
 const scissors = document.getElementById('scissors');
