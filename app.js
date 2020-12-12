@@ -44,6 +44,7 @@ function showButton() {
 
 function startPlaying() {
     // Computer's turn
+    console.log(appState);
 }
 
 paper.addEventListener('click', () => {
