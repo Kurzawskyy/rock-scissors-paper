@@ -9,9 +9,19 @@
     <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
 <body>
+    <div id="modal" class="modal">
+        <div id="modal-content" class="modal-content">
+            <header class="modal-title">What's your name?</header>
+            <section class="modal-section"><input id="first-user-name" type="text" placeholder="Type your name here" class="input"></section>
+            <footer id="modal-footer" class="modal-footer">
+                <button id="submit-name-btn" class="submit-name-btn">Submit</button>
+            </footer>
+        </div>
+    </div>
+
     <div class="main-wrapper">
         <div class="content-wrapper">
-            <header>
+            <header class="content-header">
                 <h1>ROCK SCISSORS PAPER</h1>
             </header>
 
@@ -34,7 +44,9 @@
 
                     <div class="choosen" id="choosen-paper"><img class="img-size" src="img/paper.png" alt="choosen-paper" ></div>
                     <div class="choosen" id="choosen-rock"><img class="img-size" src="img/rock.png" alt="choosen-rock"></div>
-                    <div class="choosen" id="choosen-scissors"><img class="img-size" src="img/scissors.png" alt="choosen-scissors"> </div>               
+                    <div class="choosen" id="choosen-scissors"><img class="img-size" src="img/scissors.png" alt="choosen-scissors"> </div>  
+                    
+                    <button id="submit-button" class="submit-button" onclick="startPlaying()">Submit</button>
 
                 </div>
 
