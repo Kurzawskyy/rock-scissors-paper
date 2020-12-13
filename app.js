@@ -1,3 +1,6 @@
+ // TODO:
+ // Computer's turn at 53 line
+ 
  const appState = {
     userName: '',
     userSelectedItem: '',
@@ -10,12 +13,12 @@
 };
 
 
-// Modal getting elements
+// Modal elements
 const modal = document.getElementById('modal');
 const submitNameBtn = document.getElementById('submit-name-btn');
-const inputName = document.getElementById('first-user-name');
+const inputName = document.getElementById('given-user-name');
 
-// game getting elements
+// Game elements
 const paper = document.getElementById('paper');
 const rock = document.getElementById('rock');
 const scissors = document.getElementById('scissors');
@@ -31,10 +34,14 @@ const givenName = document.getElementById('user-name');
 
 // Modal running
 submitNameBtn.addEventListener('click', () => {
-    appState.userName = inputName.value;
-    givenName.innerHTML = appState.userName;
+    if(inputName.value === '') {
+        alert('You must enter your name there.');
+    } else {
+        appState.userName = inputName.value;
+        givenName.innerHTML = appState.userName;
 
-    modal.classList.add('invisible');
+        modal.classList.add('invisible');
+    }
 })
 
 // After modal
@@ -43,7 +50,7 @@ function showButton() {
 }
 
 function startPlaying() {
-    // Computer's turn
+    
 }
 
 paper.addEventListener('click', () => {
