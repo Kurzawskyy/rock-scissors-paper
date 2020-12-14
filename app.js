@@ -17,6 +17,7 @@
 const modal = document.getElementById('modal');
 const submitNameBtn = document.getElementById('submit-name-btn');
 const inputName = document.getElementById('given-user-name');
+const errorMsg = document.getElementById('error-msg');
 
 // Game elements
 const paper = document.getElementById('paper');
@@ -34,8 +35,8 @@ const givenName = document.getElementById('user-name');
 
 // Modal running
 submitNameBtn.addEventListener('click', () => {
-    if(inputName.value === '') {
-        alert('You must enter your name there.');
+    if(!inputName.value) {
+        errorMsg.classList.add('item-visible');
     } else {
         appState.userName = inputName.value;
         givenName.innerHTML = appState.userName;

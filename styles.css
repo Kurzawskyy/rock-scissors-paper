@@ -144,7 +144,7 @@ button {
 
 .modal-content {
     width: 700px;
-    height: 200px;
+    min-height: 200px;
     background-color: white;
     padding: 20px;
 }
@@ -181,6 +181,13 @@ button {
     border-color: #20BDFF;
 }
 
+.error {
+    color: #DC3545;
+    display: none;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
 .modal-footer {
     width: 96%;
     margin: auto;
@@ -201,4 +208,8 @@ button {
 
 .invisible {
     display: none;
+}
+
+.item-visible {
+    display: block;
 }
