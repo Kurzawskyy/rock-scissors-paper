@@ -2,9 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-html {
     font-family: 'Audiowide', cursive;
 }
 
@@ -33,7 +30,7 @@ button {
     border-radius: 4%;
 }
 
-header {
+.content-header {
     height: 15%;
     width: 96%;
     margin: auto;
@@ -112,3 +109,106 @@ header {
     display: block;
 }
 
+.submit-button {
+    margin-left: 68%;
+    margin-top: 60%;
+    padding: 10px;
+    font-size: 20px;
+    background-color: #B3ECFF;
+    color: #000;
+    border-radius: 20%;
+    transition: box-shadow 0.5s ease-in-out, background-color 0.5s ease-in-out;
+    box-shadow:  2px 5px rgba(0, 0, 0, 0.25);
+    display: none;
+}
+
+.submit-button:hover {
+    background-color: #B3FFD9;
+}
+
+.show-button {
+    display: block;
+}
+
+.modal {
+    position: absolute;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background: #5433FF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #A5FECB, #20BDFF, #5433FF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #A5FECB, #20BDFF, #5433FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    width: 700px;
+    min-height: 200px;
+    background-color: white;
+    padding: 20px;
+}
+
+.modal-title {
+    height: 30%;
+    width: 96%;
+    margin: auto;
+    text-align: center;
+    font-size: 35px;
+    background-image: linear-gradient(to top, #FC00FF, #00DBDE); 
+    -webkit-background-clip: text;
+    color: transparent;
+    border-bottom: solid 3px #5433FF;
+}
+
+.modal-section {
+    height: 50%;
+    width: 96%;
+}
+
+.input {
+    border: 0;
+    border-bottom: 3px solid #5433FF;
+    width: 90%;
+    font-size: 20px;
+    outline: none;
+    transition: border-color 0.5s linear;
+    margin: 20px 0 20px 46px;
+}
+
+.input:hover,
+.input:focus {
+    border-color: #20BDFF;
+}
+
+.error {
+    color: #DC3545;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.modal-footer {
+    width: 96%;
+    margin: auto;
+}
+
+.submit-name-btn {
+    font-size: 20px;
+    padding: 10px;
+    background-color: #20BDFF;
+    color: white;
+    margin-left: 43%;
+    transition: background-color 0.5s ease-in-out;
+}
+
+.submit-name-btn:hover {
+    background-color: #5433FF;
+}
+
+.invisible {
+    display: none;
+}
+
+.item-visible {
+    display: block;
+}
