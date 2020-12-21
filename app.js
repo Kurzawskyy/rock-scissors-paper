@@ -60,14 +60,18 @@ function getComputerValue() {
     switch(true) {
         case randomNumber === 0:
             appState.computerSelectedItem = paper;
+            console.log(randomNumber);
             break;
         case randomNumber === 1:
             appState.computerSelectedItem = rock;
+            console.log(randomNumber);
             break;
-        case randomNumber === 2:
+        default:
             appState.computerSelectedItem = scissors;
+            console.log(randomNumber);
             break;
     }
+    console.log(appState);
 }
 
 function getRandom() {
