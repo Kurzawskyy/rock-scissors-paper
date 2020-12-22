@@ -1,6 +1,5 @@
  // TODO:
  // Computer's turn at 53 line
- // values
  
  const appState = {
     userName: '',
@@ -31,6 +30,7 @@ const chosenScissorsElement = document.getElementById('chosen-scissors');
 
 const submitButton = document.getElementById('submit-button');
 
+// values
 const givenName = document.getElementById('user-name');
 
 const paper = 'Paper';
@@ -57,27 +57,23 @@ function showButton() {
 }
 
 function getComputerValue() {  
-    switch(true) {
-        case randomNumber === 0:
+    switch(randomNumber) {
+        case 0:
             appState.computerSelectedItem = paper;
-            console.log(randomNumber);
             break;
-        case randomNumber === 1:
+        case 1:
             appState.computerSelectedItem = rock;
-            console.log(randomNumber);
             break;
         default:
             appState.computerSelectedItem = scissors;
-            console.log(randomNumber);
             break;
     }
+    console.log(randomNumber);
     console.log(appState);
 }
 
-function getRandom() {
-    min = Math.ceil(0);
-    max = Math.ceil(2);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+function getRandom() {  
+    return Math.floor(Math.random() * (2 - 0 + 1)) + 0;
 }
 
 paperButton.addEventListener('click', () => {
