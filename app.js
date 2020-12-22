@@ -66,12 +66,11 @@ function getComputerValue() {
             break;
         default:
             appState.computerSelectedItem = scissors;
-            break;
     }
 }
 
 function getRandom() {  
-    return Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+    return Math.floor(Math.random() * (3));
 }
 
 paperButton.addEventListener('click', () => {
