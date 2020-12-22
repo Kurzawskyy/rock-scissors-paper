@@ -68,8 +68,6 @@ function getComputerValue() {
             appState.computerSelectedItem = scissors;
             break;
     }
-    console.log(randomNumber);
-    console.log(appState);
 }
 
 function getRandom() {  
