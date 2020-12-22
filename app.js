@@ -70,7 +70,7 @@ function getComputerValue() {
 }
 
 function getRandom() {  
-    return Math.floor(Math.random() * (3));
+    return Math.floor(Math.random() * 3);
 }
 
 paperButton.addEventListener('click', () => {
