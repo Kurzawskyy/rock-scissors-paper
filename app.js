@@ -1,5 +1,5 @@
  // TODO:
- // Computer's turn at 53 line
+ // Computer value
  
  const appState = {
     userName: '',
