@@ -1,5 +1,5 @@
  // TODO:
- // Computer value
+ // Computer value - DONE
  
  const appState = {
     userName: '',
@@ -30,7 +30,12 @@ const chosenScissorsElement = document.getElementById('chosen-scissors');
 
 const submitButton = document.getElementById('submit-button');
 
-// values
+// Computer values
+const drawnPaper = document.getElementById('computer-drawn-paper');
+const drawnRock = document.getElementById('computer-drawn-rock');
+const drawnScissors = document.getElementById('computer-drawn-scissors');
+
+// Values
 const givenName = document.getElementById('user-name');
 
 const paper = 'Paper';
@@ -60,12 +65,15 @@ function getComputerValue() {
     switch(randomNumber) {
         case 0:
             appState.computerSelectedItem = paper;
+            drawnPaper.classList.add('item-visible');
             break;
         case 1:
             appState.computerSelectedItem = rock;
+            drawnRock.classList.add('item-visible')
             break;
         default:
             appState.computerSelectedItem = scissors;
+            drawnScissors.classList.add('item-visible');
     }
 }
 
