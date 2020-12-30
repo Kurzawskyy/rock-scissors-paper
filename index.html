@@ -12,13 +12,15 @@
     <div id="modal" class="modal">
         <div id="modal-content" class="modal-content">
             <header class="modal-title">What's your name?</header>
-            <section class="modal-section">
-                <input id="given-user-name" type="text" placeholder="Type your name here" class="input">
-                <p id="error-msg" class="error invisible">You must enter your name there.</p>
-            </section>
-            <footer id="modal-footer" class="modal-footer">
-                <button id="submit-name-btn" class="submit-name-btn">Submit</button>
-            </footer>
+            <form id="name-form">
+                <section class="modal-section">
+                    <input id="given-user-name" type="text" placeholder="Type your name here" class="input" autofocus>
+                    <p id="error-msg" class="error invisible">You must enter your name there.</p>
+                </section>
+                <footer id="modal-footer" class="modal-footer">
+                    <button id="submit-name-btn" class="submit-name-btn">Submit</button>
+                </footer>
+            </form>           
         </div>
     </div>
 
@@ -56,6 +58,15 @@
                 <div class="player">
                     <p id="computer">Computer</p>
                     <p class="points">Points: <b id="computer-points">0</b></p>
+
+                    <div class="computer-interface">
+                        <div class="drawn-by-computer" id="computer-paper"><img class="img-size" src="img/paper.png" alt="computer-value-paper"></div>
+
+                        <div class="drawn-by-computer" id="computer-rock"><img class="img-size" src="img/rock.png" alt="computer-value-rock"></div>
+                        
+                        <div class="drawn-by-computer" id="computer-scissors"><img class="img-size" src="img/scissors.png" alt="computer-value-scssors"></div>
+                    </div>
+                    
                 </div>
 
                 <div style="clear: both"></div>

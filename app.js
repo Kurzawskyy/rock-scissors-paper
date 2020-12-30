@@ -1,5 +1,4 @@
  // TODO:
- // Computer's turn at 53 line
  
  const appState = {
     userName: '',
@@ -12,26 +11,32 @@
     ]
 };
 
-
-// Modal elements
 const modal = document.getElementById('modal');
 const submitNameBtn = document.getElementById('submit-name-btn');
 const inputName = document.getElementById('given-user-name');
 const errorMsg = document.getElementById('error-msg');
 
-// Game elements
-const paperButton = document.getElementById('paper');
-const rockButton = document.getElementById('rock');
-const scissorsButton = document.getElementById('scissors');
+const playerElements = {
+    paperBtn: document.getElementById('paper'),
+    rockBtn: document.getElementById('rock'),
+    scissorsBtn: document.getElementById('scissors')
+}
 
-const chosenPaperElement = document.getElementById('chosen-paper');
-const chosenRockElement = document.getElementById('chosen-rock');
-const chosenScissorsElement = document.getElementById('chosen-scissors');
+const playerChosenElements = {
+    paperElement: document.getElementById('chosen-paper'),
+    rockElement: document.getElementById('chosen-rock'),
+    scissorsElement: document.getElementById('chosen-scissors')
+}
 
-const submitButton = document.getElementById('submit-button');
+const computerElements = {
+    paperElement: document.getElementById('computer-paper'),
+    rockElement: document.getElementById('computer-rock'),
+    scissorsElement: document.getElementById('computer-scissors')
+}
 
-// values
 const givenName = document.getElementById('user-name');
+const submitBtn = document.getElementById('submit-button');
+const nameForm = document.getElementById('name-form');
 
 const paper = 'Paper';
 const rock = 'Rock';
@@ -40,32 +45,37 @@ const scissors = 'Scissors';
 const randomNumber = getRandom();
 
 // Modal running
-submitNameBtn.addEventListener('click', () => {
+nameForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
     if(!inputName.value) {
-        errorMsg.classList.add('item-visible');
+        errorMsg.classList.remove('invisible');
     } else {
         appState.userName = inputName.value;
         givenName.innerHTML = appState.userName;
 
         modal.classList.add('invisible');
     }
-})
+});
 
 // After modal
 function showButton() {
-    submitButton.classList.add('show-button');
+    submitBtn.classList.add('show-button');
 }
 
 function getComputerValue() {  
     switch(randomNumber) {
         case 0:
             appState.computerSelectedItem = paper;
+            computerElements.paperElement.classList.add('item-visible');
             break;
         case 1:
             appState.computerSelectedItem = rock;
+            computerElements.rockElement.classList.add('item-visible')
             break;
         default:
             appState.computerSelectedItem = scissors;
+            computerElements.scissorsElement.classList.add('item-visible');
     }
 }
 
@@ -73,32 +83,32 @@ function getRandom() {
     return Math.floor(Math.random() * 3);
 }
 
-paperButton.addEventListener('click', () => {
+playerElements.paperBtn.addEventListener('click', () => {
     appState.userSelectedItem = paper;
 
-    chosenRockElement.classList.remove('item-visible');
-    chosenScissorsElement.classList.remove('item-visible');
-    chosenPaperElement.classList.add('item-visible');
+    playerChosenElements.rockElement.classList.remove('item-visible');
+    playerChosenElements.scissorsElement.classList.remove('item-visible');
+    playerChosenElements.paperElement.classList.add('item-visible');
 
     showButton();
-})
+});
 
-rockButton.addEventListener('click', () => {
+playerElements.rockBtn.addEventListener('click', () => {
     appState.userSelectedItem = rock;
 
-    chosenPaperElement.classList.remove('item-visible');
-    chosenScissorsElement.classList.remove('item-visible');
-    chosenRockElement.classList.add('item-visible');
+    playerChosenElements.paperElement.classList.remove('item-visible');
+    playerChosenElements.scissorsElement.classList.remove('item-visible');
+    playerChosenElements.rockElement.classList.add('item-visible');
 
     showButton();
-})
+});
 
-scissorsButton.addEventListener('click', () => {
+playerElements.scissorsBtn.addEventListener('click', () => {
     appState.userSelectedItem = scissors;
 
-    chosenPaperElement.classList.remove('item-visible');
-    chosenRockElement.classList.remove('item-visible');
-    chosenScissorsElement.classList.add('item-visible');
+    playerChosenElements.paperElement.classList.remove('item-visible');
+    playerChosenElements.rockElement.classList.remove('item-visible');
+    playerChosenElements.scissorsElement.classList.add('item-visible');
 
     showButton();
-})
+});

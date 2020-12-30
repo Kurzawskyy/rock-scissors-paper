@@ -105,6 +105,20 @@ button {
     width: 170px;
 }
 
+.computer-interface {
+    min-width: 500px;
+    min-height: 550px;
+}
+
+.drawn-by-computer {
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    margin-top: 140px;
+    margin-left: 230px;
+    display: none;
+}
+
 .item-visible {
     display: block;
 }
@@ -207,8 +221,4 @@ button {
 
 .invisible {
     display: none;
-}
-
-.item-visible {
-    display: block;
 }
