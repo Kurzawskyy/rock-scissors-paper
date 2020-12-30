@@ -16,14 +16,12 @@ const submitNameBtn = document.getElementById('submit-name-btn');
 const inputName = document.getElementById('given-user-name');
 const errorMsg = document.getElementById('error-msg');
 
-// Game elements
 const playerElements = {
     paperBtn: document.getElementById('paper'),
     rockBtn: document.getElementById('rock'),
     scissorsBtn: document.getElementById('scissors')
 }
 
-// Chosen by user
 const playerChosenElements = {
     paperElement: document.getElementById('chosen-paper'),
     rockElement: document.getElementById('chosen-rock'),
@@ -32,14 +30,12 @@ const playerChosenElements = {
 
 const submitBtn = document.getElementById('submit-button');
 
-// Computer elements
 const computerElements = {
     paperElement: document.getElementById('computer-paper'),
     rockElement: document.getElementById('computer-rock'),
     scissorsElement: document.getElementById('computer-scissors')
 }
 
-// Values
 const givenName = document.getElementById('user-name');
 
 const paper = 'Paper';
