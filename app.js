@@ -28,8 +28,6 @@ const playerChosenElements = {
     scissorsElement: document.getElementById('chosen-scissors')
 }
 
-const submitBtn = document.getElementById('submit-button');
-
 const computerElements = {
     paperElement: document.getElementById('computer-paper'),
     rockElement: document.getElementById('computer-rock'),
@@ -37,6 +35,8 @@ const computerElements = {
 }
 
 const givenName = document.getElementById('user-name');
+const submitBtn = document.getElementById('submit-button');
+const nameForm = document.getElementById('name-form');
 
 const paper = 'Paper';
 const rock = 'Rock';
@@ -45,7 +45,9 @@ const scissors = 'Scissors';
 const randomNumber = getRandom();
 
 // Modal running
-submitNameBtn.addEventListener('click', () => {
+nameForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
     if(!inputName.value) {
         errorMsg.classList.remove('invisible');
     } else {
@@ -54,7 +56,7 @@ submitNameBtn.addEventListener('click', () => {
 
         modal.classList.add('invisible');
     }
-})
+});
 
 // After modal
 function showButton() {
