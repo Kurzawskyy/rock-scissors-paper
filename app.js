@@ -1,5 +1,9 @@
  // TODO:
- 
+// loader - hints
+// 1) element html 'loader' ukryty
+// 2) w momencie kliknięcia submit loader się pokazuje, a ukrycie loadera wylosowanie i pokazanie łapki komputera ma być w setTimeoucie
+
+
  const appState = {
     userName: '',
     userSelectedItem: '',
@@ -35,14 +39,12 @@ const computerElements = {
 }
 
 const givenName = document.getElementById('user-name');
-const submitBtn = document.getElementById('submit-button');
+const submitPlayerSelectionBtn = document.getElementById('submit-player-selection-button');
 const nameForm = document.getElementById('name-form');
 
 const paper = 'Paper';
 const rock = 'Rock';
 const scissors = 'Scissors';
-
-const randomNumber = getRandom();
 
 // Modal running
 nameForm.addEventListener('submit', (event) => {
@@ -60,10 +62,16 @@ nameForm.addEventListener('submit', (event) => {
 
 // After modal
 function showButton() {
-    submitBtn.classList.add('show-button');
+    submitPlayerSelectionBtn.classList.add('show-button');
 }
 
+submitPlayerSelectionBtn.addEventListener('click', () => {
+    getComputerValue();
+})
+
 function getComputerValue() {  
+    const randomNumber = getRandom();
+
     switch(randomNumber) {
         case 0:
             appState.computerSelectedItem = paper;
