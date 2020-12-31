@@ -41,6 +41,7 @@ const computerElements = {
 const givenName = document.getElementById('user-name');
 const submitPlayerSelectionBtn = document.getElementById('submit-player-selection-button');
 const nameForm = document.getElementById('name-form');
+const loader = document.getElementById('loader');
 
 const paper = 'Paper';
 const rock = 'Rock';
@@ -70,21 +71,35 @@ submitPlayerSelectionBtn.addEventListener('click', () => {
 })
 
 function getComputerValue() {  
-    const randomNumber = getRandom();
+    disablingBtn()
+    loader.classList.add('item-visible');
 
-    switch(randomNumber) {
-        case 0:
-            appState.computerSelectedItem = paper;
-            computerElements.paperElement.classList.add('item-visible');
-            break;
-        case 1:
-            appState.computerSelectedItem = rock;
-            computerElements.rockElement.classList.add('item-visible')
-            break;
-        default:
-            appState.computerSelectedItem = scissors;
-            computerElements.scissorsElement.classList.add('item-visible');
-    }
+    setTimeout( () => {
+        loader.classList.remove('item-visible');
+
+        const randomNumber = getRandom();
+        switch(randomNumber) {
+            case 0:
+                appState.computerSelectedItem = paper;
+                computerElements.paperElement.classList.add('item-visible');
+                break;
+            case 1:
+                appState.computerSelectedItem = rock;
+                computerElements.rockElement.classList.add('item-visible')
+                break;
+            default:
+                appState.computerSelectedItem = scissors;
+                computerElements.scissorsElement.classList.add('item-visible');
+        }
+    }, 1500);
+}
+
+function disablingBtn() {
+    playerElements.paperBtn.disabled = true;
+    playerElements.rockBtn.disabled = true;
+    playerElements.scissorsBtn.disabled = true;
+
+    submitPlayerSelectionBtn.disabled = true;
 }
 
 function getRandom() {  

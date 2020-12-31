@@ -81,6 +81,18 @@ button {
     font-size: 20px;
 }
 
+.loader {
+    text-align: center;
+    font-size: 20px;
+    color: #FF8C1A;
+    margin-top: 50px;
+    position: absolute;
+    margin-top: 70px;
+    margin-left: 260px;
+    display: none;
+}
+
+
 .images {
     margin-left: 40px;
     float: left;
@@ -114,7 +126,7 @@ button {
     position: absolute;
     width: 170px;
     height: 170px;
-    margin-top: 140px;
+    margin-top: 170px;
     margin-left: 230px;
     display: none;
 }
