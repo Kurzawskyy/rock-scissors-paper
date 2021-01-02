@@ -10,17 +10,43 @@
 </head>
 <body>
     <div id="modal" class="modal">
-        <div id="modal-content" class="modal-content">
+        <div class="modal-content">
             <header class="modal-title">What's your name?</header>
             <form id="name-form">
                 <section class="modal-section">
                     <input id="given-user-name" type="text" placeholder="Type your name here" class="input" autofocus>
                     <p id="error-msg" class="error invisible">You must enter your name there.</p>
                 </section>
-                <footer id="modal-footer" class="modal-footer">
-                    <button id="submit-name-btn" class="submit-name-btn">Submit</button>
+                <footer class="modal-footer">
+                    <button id="submit-name-btn" class="submit-modals-btn">Submit</button>
                 </footer>
             </form>           
+        </div>
+    </div>
+
+    <div id="statment-modal" class="modal invisible">
+        <div class="modal-content">
+                <header class="modal-title">Go to the next round</header>
+                <section class="modal-section">
+                    <p id="msg-to-user" class="msg-to-user"></p>
+                </section>
+                <footer class="modal-footer">
+                    <button id="sumbit-round-btn" class="submit-modals-btn">Next round</button>
+                </footer>
+        </div>
+    </div>
+
+    <div id="end-game-modal" class="modal invisible">
+        <div class="modal-content">
+            <header class="modal-title">End of the game</header>
+            <section class="modal-section">
+                <p id="who-won-msg" class="msg-to-user"></p>
+            </section>
+            <footer class="modal-footer">
+                <button id="end-game-refresh" class="end-game-choice">Play again</button>
+                <button id="end-game-change-name" class="end-game-choice">Switch name</button>
+                <button id="end-game-close" class="end-game-choice">Finish</button>
+            </footer>
         </div>
     </div>
 
@@ -31,7 +57,7 @@
             </header>
 
             <div class="round">
-                <p id="round-number">Round: <b id="round-counter">1</b></p>
+                <p>Round: <b id="round-counter">1</b></p>
             </div>
 
             <div class="game">

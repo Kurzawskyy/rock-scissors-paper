@@ -218,17 +218,38 @@ button {
     margin: auto;
 }
 
-.submit-name-btn {
+.submit-modals-btn {
     font-size: 20px;
     padding: 10px;
     background-color: #20BDFF;
     color: white;
-    margin-left: 43%;
+    margin-left: 250px;
     transition: background-color 0.5s ease-in-out;
 }
 
-.submit-name-btn:hover {
+.submit-modals-btn:hover {
     background-color: #5433FF;
+}
+
+.end-game-choice {
+    font-size: 20px;
+    padding: 10px;
+    background-color: #20BDFF;
+    color: white;
+    transition: background-color 0.5s ease-in-out;
+    width: 200px;
+    margin-left: 5px;
+}
+
+.end-game-choice:hover {
+    background-color: #5433FF;
+}
+
+.msg-to-user {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .invisible {
