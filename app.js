@@ -78,15 +78,12 @@ function showButton() {
     submitPlayerSelectionBtn.classList.add('show-button');
 }
 
-submitPlayerSelectionBtn.addEventListener('click', () => {
-    getComputerValue();
-});
-
+submitPlayerSelectionBtn.addEventListener('click', getComputerValue);
 function getComputerValue() {  
-    disablingBtn()
+    switchBooleanValue()
     loader.classList.add('item-visible');
 
-    setTimeout( () => {
+    setTimeout(() => {
         loader.classList.remove('item-visible');
 
         const randomNumber = getRandom();
@@ -96,15 +93,15 @@ function getComputerValue() {
                 computerElements.paperElement.classList.add('item-visible');
 
                 if(appState.userSelectedItem === paper) {
-                    deadHeat();
+                    roundWinner('No one won this round...');
                 } else if(appState.userSelectedItem === rock) {
                     appState.points.computer++;
                     computerPoints.innerHTML = appState.points.computer;
-                    computerWonRound();
+                   roundWinner('Computer won this round...');
                 } else {
                     appState.points.user++;
                     userPoints.innerHTML = appState.points.user;
-                    userWonRound();
+                   roundWinner('You won this round...');
                 }
                 break;
             case 1:
@@ -112,15 +109,15 @@ function getComputerValue() {
                 computerElements.rockElement.classList.add('item-visible')
 
                 if(appState.userSelectedItem === rock) {
-                    deadHeat();
+                    roundWinner('No one won this round...');
                 } else if(appState.userSelectedItem === paper) {
                     appState.points.user++;
                     userPoints.innerHTML = appState.points.user;
-                    userWonRound();
+                   roundWinner('You won this round...');
                 } else {
                     appState.points.computer++;
                     computerPoints.innerHTML = appState.points.computer;
-                    computerWonRound();
+                   roundWinner('Computer won this round...');
                 }
                 break;
             default:
@@ -128,15 +125,15 @@ function getComputerValue() {
                 computerElements.scissorsElement.classList.add('item-visible');
 
                 if(appState.userSelectedItem === scissors) {
-                    deadHeat();
+                    roundWinner('No one won this round...');
                 } else if(appState.userSelectedItem === rock) {
                     appState.points.user++;
                     userPoints.innerHTML = appState.points.user;
-                    userWonRound();
+                   roundWinner('You won this round...');
                 } else {
                     appState.points.computer++;
                     computerPoints.innerHTML = appState.points.computer;
-                    computerWonRound();
+                   roundWinner('Computer won this round...');
                 }
         }
         
@@ -148,23 +145,9 @@ function showNextRoundStatement(msg) {
     roundModal.msg.innerHTML = msg;
 }
 
-function deadHeat() {
-    setTimeout( () => {
-        showNextRoundStatement('No one won this round...');
-        nextRound();
-    }, 2000);
-}
-
-function userWonRound() {
-    setTimeout( () => {
-        showNextRoundStatement('You won this round...');
-        nextRound();
-    }, 2000);
-}
-
-function computerWonRound() {
-    setTimeout( () => {
-        showNextRoundStatement('Computer won this round...');
+function roundWinner(msg) { 
+    setTimeout(() => {
+        showNextRoundStatement(msg);
         nextRound();
     }, 2000);
 }
@@ -173,20 +156,22 @@ roundModal.btn.addEventListener('click', () => {
     roundModal.modal.classList.add('invisible');
 })
 
-function disablingBtn() {
-    playerElements.paperBtn.disabled = true;
-    playerElements.rockBtn.disabled = true;
-    playerElements.scissorsBtn.disabled = true;
+function switchBooleanValue() {
+    const btnsToClick = [
+        playerElements.paperBtn,
+        playerElements.rockBtn,
+        playerElements.scissorsBtn,
 
-    submitPlayerSelectionBtn.disabled = true;
-}
+        submitPlayerSelectionBtn
+    ]
 
-function btnActive() {
-    playerElements.paperBtn.disabled = false;
-    playerElements.rockBtn.disabled = false;
-    playerElements.scissorsBtn.disabled = false;
-
-    submitPlayerSelectionBtn.disabled = false;
+    btnsToClick.forEach(function(btnToClick) {
+        if(btnToClick.disabled === false) {
+            btnToClick.disabled = true;
+        } else {
+            btnToClick.disabled = false;
+        }
+    });
 }
 
 function nextRound() {
@@ -196,29 +181,28 @@ function nextRound() {
         clearSelections();
         hideElements();
 
-        btnActive();
+        switchBooleanValue();
         
         if(appState.points.computer === 3 || appState.points.user === 3) {
             endGameModal.modal.classList.remove('invisible');
-            whoWonMsg(winner() );
+            getWonMsg(winner());
             endGameModal.playAgain.addEventListener('click', () => {
                 clearAppStateWithoutName();
                 endGameModal.modal.classList.add('invisible');
                 roundModal.modal.classList.add('invisible');
-                inputName.value = null;
+                modal.classList.remove('invisisble');
                 
             });
             endGameModal.playAgainSwitchName.addEventListener('click', () => {
-                clearAppState();
                 location.reload();
             });
             endGameModal.closeGame.addEventListener('click', () => {
-                window.close(); // it doesn't work cuz browser shows that script may close only the windows that were opened by them and I don't know how to solve it
+                window.close(); // to discuss
             });
         }
 }
 
-function whoWonMsg(msg) {
+function getWonMsg(msg) {
     endGameModal.modal.classList.remove('invisible');
     endGameModal.msg.innerHTML = msg;
 }
@@ -236,6 +220,17 @@ function clearSelections() {
     appState.computerSelectedItem = null;
 }
 
+function clearAppState() {
+    appState.computerSelectedItem = '';
+    appState.points = {
+        user: 0,
+        computer: 0
+    };
+    appState.round = 1;
+    appState.userName = '';
+    appState.userSelectedItem = '';
+}
+
 function clearAppStateWithoutName() {
     appState.computerSelectedItem = '';
     appState.points = {
@@ -248,17 +243,6 @@ function clearAppStateWithoutName() {
     computerPoints.innerHTML = appState.points.computer;
     userPoints.innerHTML = appState.points.user;
     round.innerHTML = appState.round
-}
-
-function clearAppState() {
-    appState.computerSelectedItem = '';
-    appState.points = {
-        user: 0,
-        computer: 0
-    };
-    appState.round = 1;
-    appState.userName = '';
-    appState.userSelectedItem = '';
 }
 
 function hideElements() {
