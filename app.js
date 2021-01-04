@@ -93,15 +93,15 @@ function getComputerValue() {
                 computerElements.paperElement.classList.add('item-visible');
 
                 if(appState.userSelectedItem === paper) {
-                    roundWinner('No one won this round...');
+                    getRoundWinner('No one won this round...');
                 } else if(appState.userSelectedItem === rock) {
                     appState.points.computer++;
                     computerPoints.innerHTML = appState.points.computer;
-                   roundWinner('Computer won this round...');
+                   getRoundWinner('Computer won this round...');
                 } else {
                     appState.points.user++;
                     userPoints.innerHTML = appState.points.user;
-                   roundWinner('You won this round...');
+                   getRoundWinner('You won this round...');
                 }
                 break;
             case 1:
@@ -109,15 +109,15 @@ function getComputerValue() {
                 computerElements.rockElement.classList.add('item-visible')
 
                 if(appState.userSelectedItem === rock) {
-                    roundWinner('No one won this round...');
+                    getRoundWinner('No one won this round...');
                 } else if(appState.userSelectedItem === paper) {
                     appState.points.user++;
                     userPoints.innerHTML = appState.points.user;
-                   roundWinner('You won this round...');
+                   getRoundWinner('You won this round...');
                 } else {
                     appState.points.computer++;
                     computerPoints.innerHTML = appState.points.computer;
-                   roundWinner('Computer won this round...');
+                   getRoundWinner('Computer won this round...');
                 }
                 break;
             default:
@@ -125,15 +125,15 @@ function getComputerValue() {
                 computerElements.scissorsElement.classList.add('item-visible');
 
                 if(appState.userSelectedItem === scissors) {
-                    roundWinner('No one won this round...');
+                    getRoundWinner('No one won this round...');
                 } else if(appState.userSelectedItem === rock) {
                     appState.points.user++;
                     userPoints.innerHTML = appState.points.user;
-                   roundWinner('You won this round...');
+                   getRoundWinner('You won this round...');
                 } else {
                     appState.points.computer++;
                     computerPoints.innerHTML = appState.points.computer;
-                   roundWinner('Computer won this round...');
+                   getRoundWinner('Computer won this round...');
                 }
         }
         
@@ -145,7 +145,7 @@ function showNextRoundStatement(msg) {
     roundModal.msg.innerHTML = msg;
 }
 
-function roundWinner(msg) { 
+function getRoundWinner(msg) { 
     setTimeout(() => {
         showNextRoundStatement(msg);
         nextRound();
@@ -166,11 +166,7 @@ function switchBooleanValue() {
     ]
 
     btnsToClick.forEach(function(btnToClick) {
-        if(btnToClick.disabled === false) {
-            btnToClick.disabled = true;
-        } else {
-            btnToClick.disabled = false;
-        }
+        btnToClick.disabled = !btnToClick.disabled;
     });
 }
 
@@ -185,7 +181,7 @@ function nextRound() {
         
         if(appState.points.computer === 3 || appState.points.user === 3) {
             endGameModal.modal.classList.remove('invisible');
-            getWonMsg(winner());
+            getWonMsg(getWinner());
             endGameModal.playAgain.addEventListener('click', () => {
                 clearAppStateWithoutName();
                 endGameModal.modal.classList.add('invisible');
@@ -207,7 +203,7 @@ function getWonMsg(msg) {
     endGameModal.msg.innerHTML = msg;
 }
 
-function winner() {
+function getWinner() {
         if(appState.points.computer === 3) {
             return 'This time computer has been won. Would you like to play again?';
         } else {
