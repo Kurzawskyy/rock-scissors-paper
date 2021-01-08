@@ -65,11 +65,17 @@ nameForm.addEventListener('submit', (event) => {
 
     if(!inputName.value) {
         errorMsg.classList.remove('invisible');
+        errorMsg.innerHTML = 'You must enter your name there.';
     } else {
-        appState.userName = inputName.value;
-        givenName.innerHTML = appState.userName;
+        if(inputName.value === ' ') {
+            errorMsg.innerHTML = 'You can`t just enter a blank space there.';
+            errorMsg.classList.remove('invisible');
+        } else {
+            appState.userName = inputName.value;
+            givenName.innerHTML = appState.userName;
 
-        modal.classList.add('invisible');
+            modal.classList.add('invisible');
+        }
     }
 });
 
@@ -193,7 +199,7 @@ function nextRound() {
                 location.reload();
             });
             endGameModal.closeGame.addEventListener('click', () => {
-                window.close(); // to discuss
+                window.close(); 
             });
         }
 }
@@ -205,9 +211,9 @@ function getWonMsg(msg) {
 
 function getWinner() {
         if(appState.points.computer === 3) {
-            return 'This time computer has been won. Would you like to play again?';
+            return 'This time computer has won. Would you like to play again?';
         } else {
-            return 'You`ve won! Congatulations! Would you like to play again?';
+            return 'You`ve won! Congratulations! Would you like to play again?';
         }
 }
 
